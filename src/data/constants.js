@@ -1,0 +1,46 @@
+/* Shared application data and helpers extracted from the original InnoFund app. */
+
+export const formatINR = (amount) => {
+  const num = Number(amount) || 0;
+  if (num >= 10000000) return `₹${(num / 10000000).toFixed(2)} Cr`;
+  if (num >= 100000) return `₹${(num / 100000).toFixed(2)} Lakhs`;
+  return new Intl.NumberFormat('en-IN', { style: 'currency', currency: 'INR', maximumFractionDigits: 0 }).format(num);
+};
+
+export const IMAGE_PRESETS = [
+  { label: 'AI Tech', url: 'https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&w=800&q=80' },
+  { label: 'Clean Energy', url: 'https://images.unsplash.com/photo-1497435334941-8c899ee9e8e9?auto=format&fit=crop&w=800&q=80' },
+  { label: 'Healthcare', url: 'https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?auto=format&fit=crop&w=800&q=80' },
+  { label: 'Food Tech', url: 'https://images.unsplash.com/photo-1555396273-367ea4eb4db5?auto=format&fit=crop&w=800&q=80' },
+  { label: 'EdTech', url: 'https://images.unsplash.com/photo-1501504905252-473c47e087f8?auto=format&fit=crop&w=800&q=80' },
+  { label: 'Fintech', url: 'https://images.unsplash.com/photo-1559526324-4b87b5e36e44?auto=format&fit=crop&w=800&q=80' },
+  { label: 'General Idea', url: 'https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=800&q=80' }
+];
+
+export const AVATAR_PRESETS = [
+  'https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=150&auto=format&fit=crop&q=80',
+  'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=150&auto=format&fit=crop&q=80',
+  'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=150&auto=format&fit=crop&q=80',
+  'https://images.unsplash.com/photo-1580489944761-15a19d654956?w=150&auto=format&fit=crop&q=80',
+  'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=150&auto=format&fit=crop&q=80'
+];
+
+export const DEMO_USERS = [
+  { id:'u_pitcher_1', name:'Aarav Sharma', email:'aarav@chaibot.io', password:'password123', role:'pitcher', bio:'Serial FoodTech innovator & former robotics engineer with 2 patents in automated culinary systems.', company:'ChaiBot Technologies', avatar:'https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=150&auto=format&fit=crop&q=80', walletBalance:0 },
+  { id:'u_pitcher_2', name:'Priya Sundaram', email:'priya@aerogreen.in', password:'password123', role:'pitcher', bio:'Drone researcher from IIT Madras building affordable agritech hardware for smallholder farmers.', company:'AeroGreen Robotics', avatar:'https://images.unsplash.com/photo-1580489944761-15a19d654956?w=150&auto=format&fit=crop&q=80', walletBalance:0 },
+  { id:'u_investor_1', name:'Vikramaditya Singhania', email:'vikram@singhaniavc.com', password:'password123', role:'investor', bio:'Angel investor & Tech Lead interested in ClimateTech, AI, and Consumer Hardware.', company:'Singhania Micro VC', avatar:'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=150&auto=format&fit=crop&q=80', walletBalance:2500000 },
+  { id:'u_investor_2', name:'Dr. Ananya Roy', email:'ananya@healthcap.in', password:'password123', role:'investor', bio:'Physician turned Seed Investor passionate about early health diagnostic startups.', company:'HealthCap Angels', avatar:'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=150&auto=format&fit=crop&q=80', walletBalance:1800000 }
+];
+
+export const INITIAL_PITCHES = [
+  { id:'pitch_1', title:'ChaiBot: Automated Smart Chai Kiosks', tagline:'Freshly brewed artisan chai delivered in 30 seconds across tech parks & metro stations.', category:'Food Tech', pitcherId:'u_pitcher_1', pitcherName:'Aarav Sharma', pitcherEmail:'aarav@chaibot.io', pitcherAvatar:'https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=150&auto=format&fit=crop&q=80', imageUrl:'https://images.unsplash.com/photo-1571934811356-5cc061b6821f?auto=format&fit=crop&w=800&q=80', description:`ChaiBot is revolutionizing office breakrooms and high-footfall public transport hubs by serving high-quality, authentic freshly brewed tea on demand. Our proprietary IoT automated machine brews tea with fresh leaves, whole cardamom, and organic milk in under 30 seconds with zero manual intervention.\n\nProblem: Corporate hubs rely on sub-standard instant tea powders or unhygienic local vendors.\nSolution: Compact 4x4 sq.ft autonomous kiosk dispensing 12 artisanal chai varieties with contactless UPI payment integration.`, marketOpportunity:'₹35,000 Crore Indian tea market with corporate tea break consumption growing 22% YoY.', milestones:'Prototype functional. Pilot agreements signed with 4 tech parks in Bengaluru.', demoUrl:'https://youtube.com', targetAmount:1000000, expectedInvestors:10, minInvestmentPerSlot:100000, raisedAmount:600000, createdAt:'2026-02-01', status:'Active' },
+  { id:'pitch_2', title:'AeroGreen: Solar Drones for Agri-Surveillance', tagline:'Autonomous AI drones boosting crop yields by early pest detection for Indian farmers.', category:'Clean Energy', pitcherId:'u_pitcher_2', pitcherName:'Priya Sundaram', pitcherEmail:'priya@aerogreen.in', pitcherAvatar:'https://images.unsplash.com/photo-1580489944761-15a19d654956?w=150&auto=format&fit=crop&q=80', imageUrl:'https://images.unsplash.com/photo-1508614589041-895b88991e3e?auto=format&fit=crop&w=800&q=80', description:`AeroGreen builds ultra-light solar-assisted drones equipped with multispectral imaging sensors to detect crop diseases and soil moisture deficiencies 2 weeks before visual symptoms appear.\n\nProblem: Indian farmers lose up to 35% of crop yields annually due to delayed pest diagnosis.\nSolution: Subscription-based drone scouting service priced at just ₹299/acre. Drones operate for up to 6 hours continuous flight time via top-mounted thin-film solar strips.`, marketOpportunity:'140 Million hectares of cultivated agricultural land in India.', milestones:'Field tested across 1,200 acres in Tamil Nadu & Andhra Pradesh.', demoUrl:'https://vimeo.com', targetAmount:500000, expectedInvestors:5, minInvestmentPerSlot:100000, raisedAmount:300000, createdAt:'2026-02-05', status:'Active' },
+  { id:'pitch_3', title:'NeuraCare: AI Cardiac Diagnostic Sensors', tagline:'Portable ultrasound sensor coupled with cloud AI detecting cardiac risks instantly in clinics.', category:'Healthcare', pitcherId:'u_pitcher_1', pitcherName:'Aarav Sharma', pitcherEmail:'aarav@chaibot.io', pitcherAvatar:'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=150&auto=format&fit=crop&q=80', imageUrl:'https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?auto=format&fit=crop&w=800&q=80', description:`NeuraCare turns any smartphone or tablet into a handheld cardiac screening station. Our pocket-sized Bluetooth transducer scans heart valves and streams live Doppler metrics to a medical AI model.\n\nProblem: Rural primary healthcare centers lack cardiologist specialists and expensive echo machines.\nSolution: Pocket sensor priced at 1/10th of traditional machines, producing triage reports in 60 seconds.`, marketOpportunity:'Over 65,000 tier-2 and tier-3 nursing homes across South Asia.', milestones:'Clinical trials completed across 3 hospital networks with 96.4% diagnostic accuracy.', demoUrl:'', targetAmount:2000000, expectedInvestors:20, minInvestmentPerSlot:100000, raisedAmount:1800000, createdAt:'2026-01-20', status:'Active' },
+  { id:'pitch_4', title:'EcoPack: Biodegradable Mushroom Packaging', tagline:'Sustainable, compostable protective packaging made from agricultural waste & mycelium.', category:'Other', pitcherId:'u_pitcher_2', pitcherName:'Priya Sundaram', pitcherEmail:'priya@aerogreen.in', pitcherAvatar:'https://images.unsplash.com/photo-1580489944761-15a19d654956?w=150&auto=format&fit=crop&q=80', imageUrl:'https://images.unsplash.com/photo-1530587191325-3db32d826c18?auto=format&fit=crop&w=800&q=80', description:`EcoPack replaces styrofoam and single-use plastic cushions with 100% bio-degradable packaging grown from paddy straw and mushroom roots (mycelium).\n\nProblem: E-commerce generates millions of tons of non-recyclable foam waste annually.\nSolution: Fully custom molded packaging that naturally decomposes in soil in under 45 days.`, marketOpportunity:'₹12,000 Crore eco-friendly industrial packaging sector.', milestones:'Patented formulation. Pilot batch shipped to 3 local fashion retailers.', demoUrl:'', targetAmount:800000, expectedInvestors:8, minInvestmentPerSlot:100000, raisedAmount:200000, createdAt:'2026-02-08', status:'Active' }
+];
+
+export const SAMPLE_INVESTMENTS = [
+  { id:'inv_101', pitchId:'pitch_1', pitchTitle:'ChaiBot: Automated Smart Chai Kiosks', investorId:'u_investor_1', investorEmail:'vikram@singhaniavc.com', investorName:'Vikramaditya Singhania', amount:200000, slotsCount:2, date:'2026-02-02' },
+  { id:'inv_102', pitchId:'pitch_2', pitchTitle:'AeroGreen: Solar Drones for Agri-Surveillance', investorId:'u_investor_1', investorEmail:'vikram@singhaniavc.com', investorName:'Vikramaditya Singhania', amount:100000, slotsCount:1, date:'2026-02-06' },
+  { id:'inv_103', pitchId:'pitch_3', pitchTitle:'NeuraCare: AI Cardiac Diagnostic Sensors', investorId:'u_investor_2', investorEmail:'ananya@healthcap.in', investorName:'Dr. Ananya Roy', amount:300000, slotsCount:3, date:'2026-02-08' }
+];
